@@ -3,7 +3,7 @@ unit uRegrasTabuleiro;
 interface
 
 uses
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Vcl.Graphics, Dialogs;
 
 type
   TJogador = record
@@ -28,9 +28,27 @@ begin
   for i := 1 to 9 do
   begin
     pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
-    if  Assigned(pnPecaTab) then pnPecaTab.Caption := '';
+    if  Assigned(pnPecaTab) then pnPecaTab.Caption :=  EmptyStr;
   end;
 end;
+
+{$region 'Estilo panel Jogador'}
+//Essa procedure ainda não está sendo usada, foi salvo apenas como esboço, se preferir pode descartar
+procedure estiloPn;
+var pnPecaTab: TPanel; i: integer;
+begin
+  for i := 1 to 9 do
+  begin
+    pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
+    if not (pnPecaTab.Caption = EmptyStr) then begin
+      if (pnPecaTab.Caption = 'X') then
+          pnPecaTab.Color := clRed
+          else
+          pnPecaTab.Color := clBlue;
+    end;
+  end;
+end;
+{$endregion}
 
 function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
 begin
@@ -53,13 +71,26 @@ var
   jogada: string;
 begin
   jogada := 'X';
-
   Result := jogada;
 end;
 
 procedure CriarJogadores(jogadores: array of TJogador);
 begin
-  //
+  jogadores[0].Nome := '';
+  jogadores[0].Simbolo := 'O';
+
+  jogadores[1].Nome := '';
+  jogadores[1].Simbolo := 'X';
+
 end;
+
+procedure NmJogadores(nmJogador1,nmJogador2 :String);
+begin
+    // Verifica se os nomes dos jogadores foram inseridos
+  if not ((nmJogador1 <> EmptyStr) and (nmJogador2<> EmptyStr )) then
+      nmJogador1:=InputBox('Digite seu nome', 'Nome:', '')
+  else
+    ShowMessage('Por favor, insira os nomes de ambos os jogadores.');
+  end;
 
 end.

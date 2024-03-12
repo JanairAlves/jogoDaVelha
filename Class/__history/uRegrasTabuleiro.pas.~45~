@@ -5,6 +5,8 @@ interface
 uses
   Vcl.ExtCtrls, Vcl.Graphics, Dialogs;
 
+ ;
+
 type
   TJogador = record
   Nome: string;
@@ -14,6 +16,7 @@ type
   function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
   function Jogada: string;
   procedure CriarJogadores(jogadores: array of TJogador);
+  function NmJogadores(Jogador1,Jogador2 : String): String;
 
 implementation
 
@@ -84,6 +87,13 @@ begin
 
 end;
 
-
+function NmJogadores(Jogador1,Jogador2 : String): String;
+var i : Integer;
+begin
+  i:=1;
+  while i <= 2 do
+  Jogador1 := InputBox('Digite o nome do jogador '+IntToStr(i), 'Nome:', '');
+  i:=i+1;
+end;
 
 end.

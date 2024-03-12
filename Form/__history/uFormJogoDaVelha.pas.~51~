@@ -56,9 +56,7 @@ type
     procedure pnTab7Click(Sender: TObject);
     procedure pnTab8Click(Sender: TObject);
     procedure pnTab9Click(Sender: TObject);
-    procedure FormMouseActivate(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y, HitTest: Integer;
-      var MouseActivate: TMouseActivate);
+    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
   private
     procedure inserirNmJogadores;
     { Private declarations }
@@ -75,11 +73,11 @@ implementation
 
 { TFormJogoDaVelha }
 
-procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
-  var MouseActivate: TMouseActivate);
+
+procedure TFormJogoDaVelha.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
 begin
-  inserirNmJogadores;
+    inserirNmJogadores;
 end;
 
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
@@ -132,20 +130,13 @@ begin
  pnTab9.Caption := Jogada;
 end;
 
-{$region 'Inserir Nome Jogadores'}
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
     begin
-      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1', 'Nome:', '');
-    end;
+      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador', 'Nome:', '');
 
-     if ((lbNomeJogador2.Caption = EmptyStr)) then
-    begin
-      lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
     end;
-
 end;
-{$endregion}
 
 end.

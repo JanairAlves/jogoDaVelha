@@ -12,7 +12,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
-  OnMouseActivate = FormMouseActivate
+  OnMouseEnter = FormMouseEnter
   OnShow = FormShow
   TextHeight = 15
   object pnTodaArea: TPanel

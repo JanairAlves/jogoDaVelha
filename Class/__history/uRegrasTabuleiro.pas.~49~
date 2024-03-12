@@ -14,11 +14,12 @@ type
   function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
   function Jogada: string;
   procedure CriarJogadores(jogadores: array of TJogador);
+  procedure NmJogadores;
 
 implementation
 
 uses
-  System.SysUtils, System.Classes;
+  System.SysUtils, System.Classes, uFormJogoDaVelha;
 
 procedure ZerarTabuleiro;
 var
@@ -84,6 +85,14 @@ begin
 
 end;
 
-
+procedure NmJogadores;
+begin
+    // Verifica se os nomes dos jogadores foram inseridos
+  if not (lbNomeJogador1.Caption <> EmptyStr) and (lbNomeJogador2.Caption <> EmptyStr ) then
+     lbNomeJogador1.Caption:=InputBox('Digite seu nome', 'Nome:', '');
+  else
+    ShowMessage('Por favor, insira os nomes de ambos os jogadores.');
+  end;
+end;
 
 end.

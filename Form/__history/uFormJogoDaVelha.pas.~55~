@@ -132,7 +132,6 @@ begin
  pnTab9.Caption := Jogada;
 end;
 
-{$region 'Inserir Nome Jogadores'}
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
@@ -146,6 +145,5 @@ begin
     end;
 
 end;
-{$endregion}
 
 end.

@@ -47,7 +47,17 @@ type
     pnCS8: TPanel;
     pnCS9: TPanel;
     procedure FormShow(Sender: TObject);
+    procedure pnTab1Click(Sender: TObject);
+    procedure pnTab2Click(Sender: TObject);
+    procedure pnTab3Click(Sender: TObject);
+    procedure pnTab4Click(Sender: TObject);
+    procedure pnTab5Click(Sender: TObject);
+    procedure pnTab6Click(Sender: TObject);
+    procedure pnTab7Click(Sender: TObject);
+    procedure pnTab8Click(Sender: TObject);
+    procedure pnTab9Click(Sender: TObject);
   private
+    procedure inserirNmJogadores;
     { Private declarations }
   public
     { Public declarations }
@@ -67,44 +77,58 @@ begin
   zerarTabuleiro;
 end;
 
-
-function TFormJogoDaVelha.ValidarVitoriaHorizontal: boolean;
+procedure TFormJogoDaVelha.pnTab1Click(Sender: TObject);
 begin
-  FormJogoDaVelha := TFormJogoDaVelha(nil);
-
-  if (Trim(pnTab1.Caption) <> '') and (Trim(pnTab2.Caption) <> '') and (Trim(pnTab3.Caption) <> '') or
-     (Trim(pnTab4.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab6.Caption) <> '') or
-     (Trim(pnTab7.Caption) <> '') and (Trim(pnTab8.Caption) <> '') and (Trim(pnTab9.Caption) <> '') then
-    begin
-      Result := True;
-      Exit;
-    end;
-
-    Result := False;
+ pnTab1.Caption := Jogada;
 end;
 
-function TFormJogoDaVelha.ValidarVitoriaVertical: boolean;
+procedure TFormJogoDaVelha.pnTab2Click(Sender: TObject);
 begin
-  if (Trim(pnTab1.Caption) <> '') and (Trim(pnTab4.Caption) <> '') and (Trim(pnTab7.Caption) <> '') or
-     (Trim(pnTab2.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab8.Caption) <> '') or
-     (Trim(pnTab3.Caption) <> '') and (Trim(pnTab6.Caption) <> '') and (Trim(pnTab9.Caption) <> '') then
-    begin
-      Result := True;
-      Exit;
-    end;
-    Result := False;
+ pnTab2.Caption := Jogada;
 end;
 
-function TFormJogoDaVelha.ValidarVitoriaCruzada: boolean;
+procedure TFormJogoDaVelha.pnTab3Click(Sender: TObject);
 begin
-    if (Trim(pnTab1.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab9.Caption) <> '') or
-       (Trim(pnTab3.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab7.Caption) <> '') then
-    begin
-      Result := True;
-      Exit;
-    end;
+ pnTab3.Caption := Jogada;
+end;
 
-    Result := False;
+procedure TFormJogoDaVelha.pnTab4Click(Sender: TObject);
+begin
+ pnTab4.Caption := Jogada;
+end;
+
+procedure TFormJogoDaVelha.pnTab5Click(Sender: TObject);
+begin
+ pnTab5.Caption := Jogada;
+end;
+
+procedure TFormJogoDaVelha.pnTab6Click(Sender: TObject);
+begin
+ pnTab6.Caption := Jogada;
+end;
+
+procedure TFormJogoDaVelha.pnTab7Click(Sender: TObject);
+begin
+ pnTab7.Caption := Jogada;
+end;
+
+procedure TFormJogoDaVelha.pnTab8Click(Sender: TObject);
+begin
+ pnTab8.Caption := Jogada;
+end;
+
+procedure TFormJogoDaVelha.pnTab9Click(Sender: TObject);
+begin
+ pnTab9.Caption := Jogada;
+end;
+
+procedure  TFormJogoDaVelha.inserirNmJogadores;
+begin
+    if ((lbNomeJogador1.Caption = EmptyStr)) then
+    begin
+      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador', 'Nome:', '');
+
+    end;
 end;
 
 end.
