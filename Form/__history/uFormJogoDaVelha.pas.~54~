@@ -132,20 +132,13 @@ begin
  pnTab9.Caption := Jogada;
 end;
 
-{$region 'Inserir Nome Jogadores'}
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
     begin
-      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1', 'Nome:', '');
-    end;
+      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador', 'Nome:', '');
 
-     if ((lbNomeJogador2.Caption = EmptyStr)) then
-    begin
-      lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
     end;
-
 end;
-{$endregion}
 
 end.
