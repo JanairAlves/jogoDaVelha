@@ -20,10 +20,9 @@ object FormJogoDaVelha: TFormJogoDaVelha
     Width = 688
     Height = 643
     Align = alClient
-    BevelEdges = [beTop]
     TabOrder = 0
-    ExplicitWidth = 682
-    ExplicitHeight = 634
+    ExplicitLeft = 8
+    ExplicitTop = -8
     object pnTabuleiro: TPanel
       Left = 136
       Top = 88
@@ -319,8 +318,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Width = 224
         Height = 64
         Align = alLeft
-        BevelEdges = [beRight]
-        BevelOuter = bvNone
         TabOrder = 0
         object lbJogador1: TLabel
           Left = 16
@@ -380,7 +377,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Width = 231
         Height = 64
         Align = alClient
-        BevelOuter = bvNone
         TabOrder = 1
         ExplicitWidth = 225
         object lbJog1: TLabel
@@ -441,7 +437,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Width = 231
         Height = 64
         Align = alRight
-        BevelOuter = bvNone
         TabOrder = 2
         ExplicitLeft = 449
         object lbRodadas: TLabel
