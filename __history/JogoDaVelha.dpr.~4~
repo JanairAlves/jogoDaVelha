@@ -1,0 +1,14 @@
+program JogoDaVelha;
+
+uses
+  Vcl.Forms,
+  uFormJogoDaVelha in 'Form\uFormJogoDaVelha.pas' {FormJogoDaVelha};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFormJogoDaVelha, FormJogoDaVelha);
+  Application.Run;
+end.

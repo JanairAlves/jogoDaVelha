@@ -1,0 +1,24 @@
+unit uFormJogoDaVelha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TFormJogoDaVelha = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormJogoDaVelha: TFormJogoDaVelha;
+
+implementation
+
+{$R *.dfm}
+
+end.

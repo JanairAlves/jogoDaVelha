@@ -1,0 +1,110 @@
+unit uFormJogoDaVelha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, uRegrasTabuleiro;
+
+type
+  TFormJogoDaVelha = class(TForm)
+    pnTodaArea: TPanel;
+    pnTabuleiro: TPanel;
+    pnStatus: TPanel;
+    pnTab1: TPanel;
+    pnTab2: TPanel;
+    pnTab3: TPanel;
+    pnTab4: TPanel;
+    pnTab5: TPanel;
+    pnTab6: TPanel;
+    pnTab7: TPanel;
+    pnTab8: TPanel;
+    pnTab9: TPanel;
+    pnStatusNome: TPanel;
+    pnStatusVitorias: TPanel;
+    pnStatusRodadas: TPanel;
+    lbJogador1: TLabel;
+    lbJogador2: TLabel;
+    lbJog1: TLabel;
+    lbJog2: TLabel;
+    lbVitorias: TLabel;
+    lbNomes: TLabel;
+    lbRodadas: TLabel;
+    lbContRodadas: TLabel;
+    lbNomeJogador1: TLabel;
+    lbNomeJogador2: TLabel;
+    lbVitJog1: TLabel;
+    lbVitJog2: TLabel;
+    pnJogadas: TPanel;
+    pnTituloJogadas: TPanel;
+    pnCS1: TPanel;
+    pnCS2: TPanel;
+    pnCS3: TPanel;
+    pnCS4: TPanel;
+    pnCS5: TPanel;
+    pnCS6: TPanel;
+    pnCS7: TPanel;
+    pnCS8: TPanel;
+    pnCS9: TPanel;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormJogoDaVelha: TFormJogoDaVelha;
+
+implementation
+
+{$R *.dfm}
+
+{ TFormJogoDaVelha }
+
+procedure TFormJogoDaVelha.FormShow(Sender: TObject);
+begin
+  zerarTabuleiro;
+end;
+
+
+function TFormJogoDaVelha.ValidarVitoriaHorizontal: boolean;
+begin
+  FormJogoDaVelha := TFormJogoDaVelha(nil);
+
+  if (Trim(pnTab1.Caption) <> '') and (Trim(pnTab2.Caption) <> '') and (Trim(pnTab3.Caption) <> '') or
+     (Trim(pnTab4.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab6.Caption) <> '') or
+     (Trim(pnTab7.Caption) <> '') and (Trim(pnTab8.Caption) <> '') and (Trim(pnTab9.Caption) <> '') then
+    begin
+      Result := True;
+      Exit;
+    end;
+
+    Result := False;
+end;
+
+function TFormJogoDaVelha.ValidarVitoriaVertical: boolean;
+begin
+  if (Trim(pnTab1.Caption) <> '') and (Trim(pnTab4.Caption) <> '') and (Trim(pnTab7.Caption) <> '') or
+     (Trim(pnTab2.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab8.Caption) <> '') or
+     (Trim(pnTab3.Caption) <> '') and (Trim(pnTab6.Caption) <> '') and (Trim(pnTab9.Caption) <> '') then
+    begin
+      Result := True;
+      Exit;
+    end;
+    Result := False;
+end;
+
+function TFormJogoDaVelha.ValidarVitoriaCruzada: boolean;
+begin
+    if (Trim(pnTab1.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab9.Caption) <> '') or
+       (Trim(pnTab3.Caption) <> '') and (Trim(pnTab5.Caption) <> '') and (Trim(pnTab7.Caption) <> '') then
+    begin
+      Result := True;
+      Exit;
+    end;
+
+    Result := False;
+end;
+
+end.
