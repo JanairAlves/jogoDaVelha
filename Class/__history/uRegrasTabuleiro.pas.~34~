@@ -5,9 +5,15 @@ interface
 uses
   Vcl.ExtCtrls;
 
-
+type
+  TJogador = record
+  Nome: string;
+  Simbolo: char;
+  end;
   procedure ZerarTabuleiro;
   function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
+  function Jogada: string;
+  procedure CriarJogadores(jogadores: array of TJogador);
 
 implementation
 
@@ -22,7 +28,7 @@ begin
   for i := 1 to 9 do
   begin
     pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
-    if  Assigned(pnPecaTab) then pnPecaTab.Caption := '';
+    if  Assigned(pnPecaTab) then pnPecaTab.Caption := EmptyStr;
   end;
 end;
 
@@ -40,6 +46,24 @@ begin
      end;
 
   Result := False;
+end;
+
+function Jogada: string;
+var
+  jogada: string;
+begin
+  jogada := 'X';
+  Result := jogada;
+end;
+
+procedure CriarJogadores(jogadores: array of TJogador);
+begin
+  jogadores[0].Nome := '';
+  jogadores[0].Simbolo := 'O';
+
+  jogadores[1].Nome := '';
+  jogadores[1].Simbolo := 'X';
+
 end;
 
 end.

@@ -28,7 +28,7 @@ begin
   for i := 1 to 9 do
   begin
     pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
-    if  Assigned(pnPecaTab) then pnPecaTab.Caption := 'X';
+    if  Assigned(pnPecaTab) then pnPecaTab.Caption :=  EmptyStr;
   end;
 end;
 
@@ -53,7 +53,6 @@ var
   jogada: string;
 begin
   jogada := 'X';
-
   Result := jogada;
 end;
 
