@@ -3,14 +3,15 @@ unit uRegrasTabuleiro;
 interface
 
 uses
-  Vcl.ExtCtrls, Vcl.Graphics, Dialogs;
+  System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Dialogs;
 
 type
   TJogador = record
   Nome: string;
   Simbolo: char;
   end;
-  procedure ZerarTabuleiro;
+  procedure LimparTabuleiro;
+  function ValidarTabuleiroCheio: boolean;
   function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
   function Jogada: string;
   procedure CriarJogadores(jogadores: array of TJogador);
@@ -18,9 +19,29 @@ type
 implementation
 
 uses
-  System.SysUtils, System.Classes;
+  System.Classes;
 
-procedure ZerarTabuleiro;
+{$region 'Valida se o tabuleiro está cheio'}
+function ValidarTabuleiroCheio: boolean;
+var
+  pnPecaTab: TPanel;
+  i: integer;
+begin  
+  for i := 1 to 9 do
+  begin
+    pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
+    if pnPecaTab.Caption = '' then
+    begin
+      Result := False;
+      Exit;
+    end;
+  end;
+  Result := True;
+end;
+{$endregion}
+
+{$region 'Limpar tabuleiro'}
+procedure LimparTabuleiro;
 var
   pnPecaTab: TPanel;
   i: integer;
@@ -31,6 +52,7 @@ begin
     if  Assigned(pnPecaTab) then pnPecaTab.Caption :=  EmptyStr;
   end;
 end;
+{$endregion}
 
 {$region 'Estilo panel Jogador'}
 //Essa procedure ainda não está sendo usada, foi salvo apenas como esboço, se preferir pode descartar
@@ -83,7 +105,5 @@ begin
   jogadores[1].Simbolo := 'X';
 
 end;
-
-
 
 end.
