@@ -84,7 +84,7 @@ end;
 
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
-  zerarTabuleiro;
+  LimparTabuleiro;
 end;
 
 procedure TFormJogoDaVelha.pnTab1Click(Sender: TObject);

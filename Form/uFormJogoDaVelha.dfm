@@ -23,8 +23,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
     Align = alClient
     BevelEdges = [beTop]
     TabOrder = 0
-    ExplicitWidth = 682
-    ExplicitHeight = 634
+    ExplicitWidth = 684
+    ExplicitHeight = 642
     object pnTabuleiro: TPanel
       Left = 136
       Top = 88
@@ -313,7 +313,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
       BevelEdges = []
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 680
+      ExplicitWidth = 682
       object pnStatusNome: TPanel
         Left = 0
         Top = 0
@@ -383,7 +383,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitWidth = 225
+        ExplicitWidth = 227
         object lbJog1: TLabel
           Left = 16
           Top = 18
@@ -444,7 +444,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitLeft = 449
+        ExplicitLeft = 451
         object lbRodadas: TLabel
           Left = 98
           Top = 2
@@ -480,8 +480,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
       Height = 130
       Align = alBottom
       TabOrder = 2
-      ExplicitTop = 503
-      ExplicitWidth = 680
+      ExplicitTop = 511
+      ExplicitWidth = 682
       object pnTituloJogadas: TPanel
         Left = 1
         Top = 1
@@ -496,7 +496,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 678
+        ExplicitWidth = 680
       end
     end
   end
