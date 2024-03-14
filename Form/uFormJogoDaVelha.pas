@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,uRegrasTabuleiro;
 
 type
   TFormJogoDaVelha = class(TForm)
@@ -51,11 +51,12 @@ type
       var MouseActivate: TMouseActivate);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     oRgTb:TRgTb;
     OTJogador : TJogador;
     procedure inserirNmJogadores;
-    function ListasPanelTabuleiro: TList;
+    procedure ListasPanelTabuleiro;
     { Private declarations }
   public
     { Public declarations }
@@ -63,22 +64,23 @@ type
 
 var
   FormJogoDaVelha: TFormJogoDaVelha;
+  vListaPanelTabuleiro: TList;
 implementation
 
 {$R *.dfm}
-
-uses uRegrasTabuleiro;
 
 { TFormJogoDaVelha }
 
 procedure TFormJogoDaVelha.FormCreate(Sender: TObject);
 begin
   oRgTb := TRgTb.Create;
+  ListasPanelTabuleiro;
 end;
 
 procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
 begin
    FreeAndNil(oRgTb);
+   vListaPanelTabuleiro.Free;
 end;
 
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
@@ -90,14 +92,10 @@ end;
 
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
-  oRgTb.LimparTabuleiro;
+    oRgTb.LimparTabuleiro(vListaPanelTabuleiro);
 end;
 
 {$region 'Inserir Nome Jogadores'}
-procedure TFormJogoDaVelha.FormShow(Sender: TObject);
-begin
-  LimparTabuleiro(Self.ListasPanelTabuleiro);
-end;
 
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
@@ -117,9 +115,8 @@ end;
 {$endregion}
 
 {$region 'Listar Panels Tabuleiro jogada'}
-function TFormJogoDaVelha.ListasPanelTabuleiro: TList;
+procedure TFormJogoDaVelha.ListasPanelTabuleiro;
 var
-  vListaPanelTabuleiro: TList;
   pnTab: TPanel;
   i: integer;
 begin
@@ -130,7 +127,6 @@ begin
     if  Assigned(pnTab) then pnTab.Caption :=  EmptyStr;
     vListaPanelTabuleiro.Add(pnTab);
   end;
-  Result := vListaPanelTabuleiro;
 end;
 {$endregion}
 
