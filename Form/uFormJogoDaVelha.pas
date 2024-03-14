@@ -50,9 +50,11 @@ type
       Shift: TShiftState; X, Y, HitTest: Integer;
       var MouseActivate: TMouseActivate);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     procedure inserirNmJogadores;
-    function ListasPanelTabuleiro: TList;
+    procedure ListasPanelTabuleiro;
     { Private declarations }
   public
     { Public declarations }
@@ -60,6 +62,7 @@ type
 
 var
   FormJogoDaVelha: TFormJogoDaVelha;
+  vListaPanelTabuleiro: TList;
 
 implementation
 
@@ -69,6 +72,16 @@ uses uRegrasTabuleiro;
 
 { TFormJogoDaVelha }
 
+procedure TFormJogoDaVelha.FormCreate(Sender: TObject);
+begin
+  ListasPanelTabuleiro;
+end;
+
+procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
+begin
+  vListaPanelTabuleiro.Free;
+end;
+
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
@@ -76,13 +89,12 @@ begin
   inserirNmJogadores;
 end;
 
-
-{$region 'Inserir Nome Jogadores'}
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
-  LimparTabuleiro(Self.ListasPanelTabuleiro);
+  LimparTabuleiro(vListaPanelTabuleiro);
 end;
 
+{$region 'Inserir Nome Jogadores'}
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
@@ -99,9 +111,8 @@ end;
 {$endregion}
 
 {$region 'Listar Panels Tabuleiro jogada'}
-function TFormJogoDaVelha.ListasPanelTabuleiro: TList;
+procedure TFormJogoDaVelha.ListasPanelTabuleiro;
 var
-  vListaPanelTabuleiro: TList;
   pnTab: TPanel;
   i: integer;
 begin
@@ -112,7 +123,6 @@ begin
     if  Assigned(pnTab) then pnTab.Caption :=  EmptyStr;
     vListaPanelTabuleiro.Add(pnTab);
   end;
-  Result := vListaPanelTabuleiro;
 end;
 {$endregion}
 
