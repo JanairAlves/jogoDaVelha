@@ -3,7 +3,7 @@ unit uRegrasTabuleiro;
 interface
 
 uses
-  System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Dialogs;
+  System.Classes, System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Dialogs, vcl.Forms;
 
 type
   TJogador = record
@@ -28,19 +28,15 @@ type
         oRgTb : TRgTb;
 implementation
 
-uses
-  System.Classes;
 
-{$region 'Valida se o tabuleiro está cheio'}
-function TRgTb.ValidarTabuleiroCheio: boolean;
+{$region 'Valida se o tabuleiro estï¿½ cheio'}
+function ValidarTabuleiroCheio(vListaPanelTabuleiro: TList): boolean;
 var
   pnPecaTab: TPanel;
-  i: integer;
-begin  
-  for i := 1 to 9 do
+begin
+  for pnPecaTab in vListaPanelTabuleiro do
   begin
-    pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
-    if pnPecaTab.Caption = '' then
+    if pnPecaTab.Caption = EmptyStr then
     begin
       Result := False;
       Exit;
@@ -51,21 +47,20 @@ end;
 {$endregion}
 
 {$region 'Limpar tabuleiro'}
-procedure TRgTb.LimparTabuleiro;
+procedure LimparTabuleiro(vListaPanelTabuleiro: TList);
 var
-  pnPecaTab: TPanel;
-  i: integer;
+  panel: TPanel;
 begin
-  for i := 1 to 9 do
+  for panel in vListaPanelTabuleiro do
   begin
-    pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
-    if  Assigned(pnPecaTab) then pnPecaTab.Caption :=  EmptyStr;
+    if  panel.Caption <> EmptyStr then
+      panel.Caption :=  EmptyStr;
   end;
 end;
 {$endregion}
 
 {$region 'Estilo panel Jogador'}
-//Essa procedure ainda não está sendo usada, foi salvo apenas como esboço, se preferir pode descartar
+//Essa procedure ainda nï¿½o estï¿½ sendo usada, foi salvo apenas como esboï¿½o, se preferir pode descartar
 procedure estiloPn;
 var pnPecaTab: TPanel; i: integer;
 begin
@@ -82,38 +77,5 @@ begin
 end;
 {$endregion}
 
-function TRgTb.ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
-begin
-  if Trim(pn1.Caption).IsEmpty or Trim(pn2.Caption).IsEmpty or Trim(pn3.Caption).IsEmpty then
-     begin
-       Result := False;
-       Exit;
-     end;
-  if (Trim(pn1.Caption) = Trim(pn2.Caption)) and (Trim(pn1.Caption) = Trim(pn3.Caption)) then
-     begin
-      Result := True;
-      Exit;
-     end;
-
-  Result := False;
-end;
-
-function TRgTb.Jogada: string;
-var
-  jogada: string;
-begin
-  jogada := 'X';
-  Result := jogada;
-end;
-
-procedure TJogador.CriarJogadores(jogadores: array of TJogador);
-begin
-  jogadores[0].Nome := '';
-  jogadores[0].Simbolo := 'O';
-
-  jogadores[1].Nome := '';
-  jogadores[1].Simbolo := 'X';
-
-end;
 
 end.

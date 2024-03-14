@@ -49,7 +49,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        OnClick = pnTab1Click
         object pnCS1: TPanel
           Left = 0
           Top = -1
@@ -79,7 +78,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
-        OnClick = pnTab2Click
         object pnCS2: TPanel
           Left = 0
           Top = 0
@@ -109,7 +107,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 2
-        OnClick = pnTab3Click
         object pnCS3: TPanel
           Left = 0
           Top = 0
@@ -139,7 +136,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 3
-        OnClick = pnTab4Click
         object pnCS4: TPanel
           Left = 0
           Top = 0
@@ -169,7 +165,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 4
-        OnClick = pnTab5Click
         object pnCS5: TPanel
           Left = 0
           Top = 0
@@ -199,7 +194,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 5
-        OnClick = pnTab6Click
         object pnCS6: TPanel
           Left = 0
           Top = 0
@@ -229,7 +223,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 6
-        OnClick = pnTab7Click
         object pnCS7: TPanel
           Left = -1
           Top = 0
@@ -259,7 +252,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 7
-        OnClick = pnTab8Click
         object pnCS8: TPanel
           Left = 0
           Top = 0
@@ -289,7 +281,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 8
-        OnClick = pnTab9Click
         object pnCS9: TPanel
           Left = 0
           Top = 0
