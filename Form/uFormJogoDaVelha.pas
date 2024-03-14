@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, uRegrasTabuleiro;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
 
 type
   TFormJogoDaVelha = class(TForm)
@@ -46,21 +46,13 @@ type
     pnCS7: TPanel;
     pnCS8: TPanel;
     pnCS9: TPanel;
-    procedure FormShow(Sender: TObject);
-    procedure pnTab1Click(Sender: TObject);
-    procedure pnTab2Click(Sender: TObject);
-    procedure pnTab3Click(Sender: TObject);
-    procedure pnTab4Click(Sender: TObject);
-    procedure pnTab5Click(Sender: TObject);
-    procedure pnTab6Click(Sender: TObject);
-    procedure pnTab7Click(Sender: TObject);
-    procedure pnTab8Click(Sender: TObject);
-    procedure pnTab9Click(Sender: TObject);
     procedure FormMouseActivate(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y, HitTest: Integer;
       var MouseActivate: TMouseActivate);
+    procedure FormShow(Sender: TObject);
   private
     procedure inserirNmJogadores;
+    function ListasPanelTabuleiro: TList;
     { Private declarations }
   public
     { Public declarations }
@@ -73,6 +65,8 @@ implementation
 
 {$R *.dfm}
 
+uses uRegrasTabuleiro;
+
 { TFormJogoDaVelha }
 
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
@@ -82,57 +76,13 @@ begin
   inserirNmJogadores;
 end;
 
-procedure TFormJogoDaVelha.FormShow(Sender: TObject);
-begin
-  LimparTabuleiro;
-end;
-
-procedure TFormJogoDaVelha.pnTab1Click(Sender: TObject);
-begin
- pnTab1.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab2Click(Sender: TObject);
-begin
- pnTab2.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab3Click(Sender: TObject);
-begin
- pnTab3.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab4Click(Sender: TObject);
-begin
- pnTab4.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab5Click(Sender: TObject);
-begin
- pnTab5.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab6Click(Sender: TObject);
-begin
- pnTab6.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab7Click(Sender: TObject);
-begin
- pnTab7.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab8Click(Sender: TObject);
-begin
- pnTab8.Caption := Jogada;
-end;
-
-procedure TFormJogoDaVelha.pnTab9Click(Sender: TObject);
-begin
- pnTab9.Caption := Jogada;
-end;
 
 {$region 'Inserir Nome Jogadores'}
+procedure TFormJogoDaVelha.FormShow(Sender: TObject);
+begin
+  LimparTabuleiro(Self.ListasPanelTabuleiro);
+end;
+
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
@@ -145,6 +95,24 @@ begin
       lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
     end;
 
+end;
+{$endregion}
+
+{$region 'Listar Panels Tabuleiro jogada'}
+function TFormJogoDaVelha.ListasPanelTabuleiro: TList;
+var
+  vListaPanelTabuleiro: TList;
+  pnTab: TPanel;
+  i: integer;
+begin
+  vListaPanelTabuleiro := TList.Create;
+  for i := 1 to 9 do
+  begin
+    pnTab := FindComponent('pnTab' + intToStr(i)) as TPanel;
+    if  Assigned(pnTab) then pnTab.Caption :=  EmptyStr;
+    vListaPanelTabuleiro.Add(pnTab);
+  end;
+  Result := vListaPanelTabuleiro;
 end;
 {$endregion}
 
