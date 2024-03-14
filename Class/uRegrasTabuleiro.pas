@@ -1,4 +1,4 @@
-unit uRegrasTabuleiro;
+﻿unit uRegrasTabuleiro;
 
 interface
 
@@ -9,19 +9,14 @@ type
   TJogador = record
   Nome: string;
   Simbolo: char;
-  private
-  procedure CriarJogadores(jogadores: array of TJogador);
-  public
   end;
 
 type
   TRgTb = class
   private
-  function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
-  function ValidarTabuleiroCheio: boolean;
+  function ValidarTabuleiroCheio(vListaPanelTabuleiro: TList): Boolean;
   public
-  procedure LimparTabuleiro;
-  function Jogada: string;
+  procedure LimparTabuleiro(vListaPanelTabuleiro: TList);
   end;
 
   var Jogador : TJogador;
@@ -30,13 +25,15 @@ implementation
 
 
 {$region 'Valida se o tabuleiro est� cheio'}
-function ValidarTabuleiroCheio(vListaPanelTabuleiro: TList): boolean;
+function TRgTb.ValidarTabuleiroCheio(vListaPanelTabuleiro: TList): boolean;
 var
   pnPecaTab: TPanel;
+  i: integer;
 begin
-  for pnPecaTab in vListaPanelTabuleiro do
+  for i := 1 to 9 do
   begin
-    if pnPecaTab.Caption = EmptyStr then
+    pnPecaTab := FindGlobalComponent('pnTab' + intToStr(i)) as TPanel;
+    if pnPecaTab.Caption = '' then
     begin
       Result := False;
       Exit;
@@ -47,7 +44,7 @@ end;
 {$endregion}
 
 {$region 'Limpar tabuleiro'}
-procedure LimparTabuleiro(vListaPanelTabuleiro: TList);
+procedure TRgTb.LimparTabuleiro(vListaPanelTabuleiro: TList);
 var
   panel: TPanel;
 begin

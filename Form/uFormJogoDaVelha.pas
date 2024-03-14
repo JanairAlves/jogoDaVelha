@@ -1,11 +1,11 @@
 unit uFormJogoDaVelha;
-
+ 
 interface
-
+ 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
-
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,uRegrasTabuleiro;
+ 
 type
   TFormJogoDaVelha = class(TForm)
     pnTodaArea: TPanel;
@@ -49,6 +49,8 @@ type
     procedure FormMouseActivate(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y, HitTest: Integer;
       var MouseActivate: TMouseActivate);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     oRgTb:TRgTb;
@@ -59,33 +61,42 @@ type
   public
     { Public declarations }
   end;
-
+ 
 var
   FormJogoDaVelha: TFormJogoDaVelha;
-
+  vListaPanelTabuleiro: TList;
 implementation
-
+ 
 {$R *.dfm}
-
-uses uRegrasTabuleiro;
-
+ 
 { TFormJogoDaVelha }
-
+ 
+procedure TFormJogoDaVelha.FormCreate(Sender: TObject);
+begin
+  oRgTb := TRgTb.Create;
+  ListasPanelTabuleiro;
+end;
+ 
+procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
+begin
+   FreeAndNil(oRgTb);
+   vListaPanelTabuleiro.Free;
+end;
+ 
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
 begin
   inserirNmJogadores;
 end;
-
-
-{$region 'Inserir Nome Jogadores'}
+ 
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
-  LimparTabuleiro(vListaPanelTabuleiro);
+    oRgTb.LimparTabuleiro(vListaPanelTabuleiro);
 end;
-
+ 
 {$region 'Inserir Nome Jogadores'}
+ 
 procedure  TFormJogoDaVelha.inserirNmJogadores;
 begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
@@ -93,16 +104,16 @@ begin
       lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1', 'Nome:', '');
       OTJogador.Nome :=  lbNomeJogador1.Caption;
     end;
-
+ 
      if ((lbNomeJogador2.Caption = EmptyStr)) then
     begin
       lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
       OTJogador.Nome :=  lbNomeJogador2.Caption;
     end;
-
+ 
 end;
 {$endregion}
-
+ 
 {$region 'Listar Panels Tabuleiro jogada'}
 procedure TFormJogoDaVelha.ListasPanelTabuleiro;
 var
@@ -118,5 +129,5 @@ begin
   end;
 end;
 {$endregion}
-
+ 
 end.
