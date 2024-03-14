@@ -12,6 +12,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnMouseActivate = FormMouseActivate
   OnShow = FormShow
   TextHeight = 15
@@ -23,8 +25,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
     Align = alClient
     BevelEdges = [beTop]
     TabOrder = 0
-    ExplicitWidth = 684
-    ExplicitHeight = 642
+    ExplicitWidth = 682
+    ExplicitHeight = 634
     object pnTabuleiro: TPanel
       Left = 136
       Top = 88
@@ -313,7 +315,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
       BevelEdges = []
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 682
+      ExplicitWidth = 680
       object pnStatusNome: TPanel
         Left = 0
         Top = 0
@@ -383,7 +385,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitWidth = 227
+        ExplicitWidth = 225
         object lbJog1: TLabel
           Left = 16
           Top = 18
@@ -444,7 +446,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitLeft = 451
+        ExplicitLeft = 449
         object lbRodadas: TLabel
           Left = 98
           Top = 2
@@ -480,8 +482,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
       Height = 130
       Align = alBottom
       TabOrder = 2
-      ExplicitTop = 511
-      ExplicitWidth = 682
+      ExplicitTop = 503
+      ExplicitWidth = 680
       object pnTituloJogadas: TPanel
         Left = 1
         Top = 1
@@ -496,7 +498,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 680
+        ExplicitWidth = 678
       end
     end
   end

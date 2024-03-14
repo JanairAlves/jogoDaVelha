@@ -59,7 +59,11 @@ type
     procedure FormMouseActivate(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y, HitTest: Integer;
       var MouseActivate: TMouseActivate);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
+    oRgTb:TRgTb;
+    OTJogador : TJogador;
     procedure inserirNmJogadores;
     { Private declarations }
   public
@@ -68,12 +72,21 @@ type
 
 var
   FormJogoDaVelha: TFormJogoDaVelha;
-
 implementation
 
 {$R *.dfm}
 
 { TFormJogoDaVelha }
+
+procedure TFormJogoDaVelha.FormCreate(Sender: TObject);
+begin
+  oRgTb := TRgTb.Create;
+end;
+
+procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
+begin
+   FreeAndNil(oRgTb);
+end;
 
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
@@ -84,52 +97,52 @@ end;
 
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
-  LimparTabuleiro;
+  oRgTb.LimparTabuleiro;
 end;
 
 procedure TFormJogoDaVelha.pnTab1Click(Sender: TObject);
 begin
- pnTab1.Caption := Jogada;
+ pnTab1.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab2Click(Sender: TObject);
 begin
- pnTab2.Caption := Jogada;
+ pnTab2.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab3Click(Sender: TObject);
 begin
- pnTab3.Caption := Jogada;
+ pnTab3.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab4Click(Sender: TObject);
 begin
- pnTab4.Caption := Jogada;
+ pnTab4.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab5Click(Sender: TObject);
 begin
- pnTab5.Caption := Jogada;
+ pnTab5.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab6Click(Sender: TObject);
 begin
- pnTab6.Caption := Jogada;
+ pnTab6.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab7Click(Sender: TObject);
 begin
- pnTab7.Caption := Jogada;
+ pnTab7.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab8Click(Sender: TObject);
 begin
- pnTab8.Caption := Jogada;
+ pnTab8.Caption := oRgTb.Jogada;
 end;
 
 procedure TFormJogoDaVelha.pnTab9Click(Sender: TObject);
 begin
- pnTab9.Caption := Jogada;
+ pnTab9.Caption := oRgTb.Jogada;
 end;
 
 {$region 'Inserir Nome Jogadores'}
@@ -138,11 +151,13 @@ begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
     begin
       lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1', 'Nome:', '');
+      OTJogador.Nome :=  lbNomeJogador1.Caption;
     end;
 
      if ((lbNomeJogador2.Caption = EmptyStr)) then
     begin
       lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
+      OTJogador.Nome :=  lbNomeJogador2.Caption;
     end;
 
 end;

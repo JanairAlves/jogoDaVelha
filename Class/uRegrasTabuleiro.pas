@@ -9,20 +9,30 @@ type
   TJogador = record
   Nome: string;
   Simbolo: char;
-  end;
-  procedure LimparTabuleiro;
-  function ValidarTabuleiroCheio: boolean;
-  function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
-  function Jogada: string;
+  private
   procedure CriarJogadores(jogadores: array of TJogador);
+  public
+  end;
 
+type
+  TRgTb = class
+  private
+  function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
+  function ValidarTabuleiroCheio: boolean;
+  public
+  procedure LimparTabuleiro;
+  function Jogada: string;
+  end;
+
+  var Jogador : TJogador;
+        oRgTb : TRgTb;
 implementation
 
 uses
   System.Classes;
 
 {$region 'Valida se o tabuleiro está cheio'}
-function ValidarTabuleiroCheio: boolean;
+function TRgTb.ValidarTabuleiroCheio: boolean;
 var
   pnPecaTab: TPanel;
   i: integer;
@@ -41,7 +51,7 @@ end;
 {$endregion}
 
 {$region 'Limpar tabuleiro'}
-procedure LimparTabuleiro;
+procedure TRgTb.LimparTabuleiro;
 var
   pnPecaTab: TPanel;
   i: integer;
@@ -72,7 +82,7 @@ begin
 end;
 {$endregion}
 
-function ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
+function TRgTb.ValidarJogadaVitoriosa(pn1, pn2, pn3: TPanel): boolean;
 begin
   if Trim(pn1.Caption).IsEmpty or Trim(pn2.Caption).IsEmpty or Trim(pn3.Caption).IsEmpty then
      begin
@@ -88,7 +98,7 @@ begin
   Result := False;
 end;
 
-function Jogada: string;
+function TRgTb.Jogada: string;
 var
   jogada: string;
 begin
@@ -96,7 +106,7 @@ begin
   Result := jogada;
 end;
 
-procedure CriarJogadores(jogadores: array of TJogador);
+procedure TJogador.CriarJogadores(jogadores: array of TJogador);
 begin
   jogadores[0].Nome := '';
   jogadores[0].Simbolo := 'O';
