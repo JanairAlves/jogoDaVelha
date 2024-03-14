@@ -50,9 +50,9 @@ type
       Shift: TShiftState; X, Y, HitTest: Integer;
       var MouseActivate: TMouseActivate);
     procedure FormShow(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
   private
+    oRgTb:TRgTb;
+    OTJogador : TJogador;
     procedure inserirNmJogadores;
     procedure ListasPanelTabuleiro;
     { Private declarations }
@@ -62,7 +62,6 @@ type
 
 var
   FormJogoDaVelha: TFormJogoDaVelha;
-  vListaPanelTabuleiro: TList;
 
 implementation
 
@@ -72,16 +71,6 @@ uses uRegrasTabuleiro;
 
 { TFormJogoDaVelha }
 
-procedure TFormJogoDaVelha.FormCreate(Sender: TObject);
-begin
-  ListasPanelTabuleiro;
-end;
-
-procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
-begin
-  vListaPanelTabuleiro.Free;
-end;
-
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
@@ -89,6 +78,8 @@ begin
   inserirNmJogadores;
 end;
 
+
+{$region 'Inserir Nome Jogadores'}
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
   LimparTabuleiro(vListaPanelTabuleiro);
@@ -100,11 +91,13 @@ begin
     if ((lbNomeJogador1.Caption = EmptyStr)) then
     begin
       lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1', 'Nome:', '');
+      OTJogador.Nome :=  lbNomeJogador1.Caption;
     end;
 
      if ((lbNomeJogador2.Caption = EmptyStr)) then
     begin
       lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
+      OTJogador.Nome :=  lbNomeJogador2.Caption;
     end;
 
 end;
