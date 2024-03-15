@@ -3,8 +3,9 @@ unit uFormJogoDaVelha;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,uRegrasTabuleiro;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.ExtCtrls, Vcl.StdCtrls, uRegrasTabuleiro;
 
 type
   TFormJogoDaVelha = class(TForm)
@@ -52,23 +53,26 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
   private
-    oRgTb:TRgTb;
-    OTJogador : TJogador;
+    oRgTb: TRgTb;
+    OTJogador: TJogador;
     procedure inserirNmJogadores;
     procedure ListasPanelTabuleiro;
     { Private declarations }
+
   public
     { Public declarations }
   end;
 
 var
   FormJogoDaVelha: TFormJogoDaVelha;
-  vListaPanelTabuleiro: TList;
+  vArrayPanelJogadas: TPanelArray;
+  Jogadores: TJogadorArray;
+
 implementation
 
 {$R *.dfm}
-
 { TFormJogoDaVelha }
 
 procedure TFormJogoDaVelha.FormCreate(Sender: TObject);
@@ -78,9 +82,15 @@ begin
 end;
 
 procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
+var
+  i: integer;
 begin
-   FreeAndNil(oRgTb);
-   vListaPanelTabuleiro.Free;
+  FreeAndNil(oRgTb);
+//  for i := 0 to High(vArrayPanelJogadas) do
+//  begin
+//    vArrayPanelJogadas[i].Free;
+//  end;
+//  SetLength(vArrayPanelJogadas, 0);
 end;
 
 procedure TFormJogoDaVelha.FormMouseActivate(Sender: TObject;
@@ -92,42 +102,66 @@ end;
 
 procedure TFormJogoDaVelha.FormShow(Sender: TObject);
 begin
-    oRgTb.LimparTabuleiro(vListaPanelTabuleiro);
+  oRgTb.LimparTabuleiro(vArrayPanelJogadas);
+  pnTab1.Caption := 'X';
+  pnTab2.Caption := 'O';
+  pnTab3.Caption := 'X';
+  pnTab5.Caption := 'X';
+  pnTab7.Caption := 'X';
 end;
 
-{$region 'Inserir Nome Jogadores'}
-
-procedure  TFormJogoDaVelha.inserirNmJogadores;
+{$REGION 'Inserir Nome Jogadores'}
+procedure TFormJogoDaVelha.inserirNmJogadores;
+var
+  res: Boolean;
+  Jogador: TJogador;
+  njog: integer;
 begin
-    if ((lbNomeJogador1.Caption = EmptyStr)) then
-    begin
-      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1', 'Nome:', '');
-      OTJogador.Nome :=  lbNomeJogador1.Caption;
-    end;
+  if ((lbNomeJogador1.Caption = EmptyStr)) then
+  begin
+    lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1',
+      'Nome:', '');
+    Jogadores[0].Nome := lbNomeJogador1.Caption;
+    Jogadores[0].Simbolo := 'O';
+  end;
 
-     if ((lbNomeJogador2.Caption = EmptyStr)) then
-    begin
-      lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2', 'Nome:', '');
-      OTJogador.Nome :=  lbNomeJogador2.Caption;
-    end;
+  if ((lbNomeJogador2.Caption = EmptyStr)) then
+  begin
+    lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2',
+      'Nome:', '');
+    Jogadores[1].Nome := lbNomeJogador2.Caption;
+    Jogadores[1].Simbolo := 'X';
+  end;
 
+//  njog := 1;
+  njog := (njog + 1) mod 2;
+  Jogador := Jogadores[njog];
+
+  res := oRgTb.ValidarVitoria(vArrayPanelJogadas, Jogador);
+  if res then
+  begin
+    ShowMessage('Vitória!');
+  end
+  else
+  begin
+    ShowMessage('Perdeu!');
+  end;
 end;
-{$endregion}
+{$ENDREGION}
 
-{$region 'Listar Panels Tabuleiro jogada'}
+{$REGION 'Listar Panels Tabuleiro jogada'}
 procedure TFormJogoDaVelha.ListasPanelTabuleiro;
 var
   pnTab: TPanel;
-  i: integer;
+  i: Integer;
 begin
-  vListaPanelTabuleiro := TList.Create;
-  for i := 1 to 9 do
+  for i := 0 to 8 do
   begin
-    pnTab := FindComponent('pnTab' + intToStr(i)) as TPanel;
-    if  Assigned(pnTab) then pnTab.Caption :=  EmptyStr;
-    vListaPanelTabuleiro.Add(pnTab);
+    pnTab := FindComponent('pnTab' + intToStr( i + 1 )) as TPanel;
+    if Assigned(pnTab) then
+      vArrayPanelJogadas[i] := pnTab;
   end;
 end;
-{$endregion}
+{$ENDREGION}
 
 end.
