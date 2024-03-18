@@ -12,7 +12,7 @@ III. Validar regra de dos jogos
     - iii.   Regra Jogo Cruzado  ( Jogador preencheu 3 campos  Cruzado ligados em suas intersecções)= vitória.✅
   - ii.    Um jogador não poderá sobrepor a jogada de outro.
   - iii.     Rotina de validação de campos vazios( nesta rotina o sistema validará os campos disponivéis para o jogo, campo sem preenchimento ).
-  - vi.    Atribuir uma sequencia lógica do jogo, ex: X joga uma vez e O outra, e assim seguindo ou vice-versa.🪄
+  - vi.    Atribuir uma sequencia lógica do jogo, ex: X joga uma vez e O outra, e assim seguindo ou vice-versa.✅
   - vii.   Limpar todo tabuleiro ao final de toda rodada.✅
   - viii.  Atribuir pontuação ao vencedor, ao final de cada rodada.
   - ix.    A quantidade de rodadas não pode ser maior que a quantidades de vitórias dos dois jogadores.<br/>
