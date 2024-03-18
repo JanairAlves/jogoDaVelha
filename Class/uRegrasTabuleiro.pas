@@ -1,9 +1,10 @@
-﻿unit uRegrasTabuleiro;
+﻿                      unit uRegrasTabuleiro;
 
 interface
 
 uses
-  System.Classes, System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Vcl.Forms, Vcl.Dialogs, Winapi.Windows;
+  System.Classes, System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Dialogs,
+  Vcl.Forms;
 
 type
   TJogador = record
@@ -22,8 +23,7 @@ type
     procedure LimparTabuleiro(vArrayPanelJogadas: TPanelArray);
     function ValidarTabuleiroCheio(vArrayPanelJogadas: TPanelArray): Boolean;
     function ValidarVitoria(vArrayPanelJogadas: TPanelArray; Jogador: TJogador): Boolean;
-    procedure AtribuirSequencia(nmJ1,nmJ2:String);
-    function RealizaJogadas(Jogador: TJogador; vPanel: TPanel): Boolean;
+    function AtribuirSequencia(nmJ1,nmJ2:String):Integer;
 
 //  published
 end;
@@ -133,7 +133,7 @@ begin
 end;
 {$ENDREGION}
 
-procedure TRgTb.AtribuirSequencia(nmJ1,nmJ2:String);
+function TRgTb.AtribuirSequencia(nmJ1,nmJ2:String):Integer;
 var JogadorEscolhido:String;
 begin
   while not ((JogadorEscolhido = '1') or (JogadorEscolhido = '2'))  do
@@ -147,7 +147,11 @@ begin
             end;             
             
           if ((JogadorEscolhido = '1') or (JogadorEscolhido = '2')) then
-            begin if (JogadorEscolhido = '1') then
+            
+            begin 
+            result:= StrToInt(JogadorEscolhido);
+            
+            if (JogadorEscolhido = '1') then
                   JogadorEscolhido:=nmJ1
                   else
                   JogadorEscolhido:=nmJ2;
@@ -160,22 +164,12 @@ begin
   if ((JogadorEscolhido = nmJ1) or (JogadorEscolhido = nmJ2)) then   
   Break;
   finally
+    
   if ((JogadorEscolhido = nmJ1) or (JogadorEscolhido = nmJ2)) then   
   ShowMessage('Que comece o Jogo!');
   end;
   
 end;
 
-{$REGION 'Realiza jogada.'}
-function RealizaJogadas(Jogador: TJogador; vPanel: TPanel): Boolean;
-begin
-  Result := vPanel.Caption = EmptyStr;
-
-  if not Result then Abort;
-//    Application.MessageBox('Está casa já recebeu uma jogada, nas rodadas anteriores. Escolha outra casa!', 'Informação', MB_ICONINFORMATION+MB_OK);
-
-  vPanel.Caption := Jogador.Simbolo;
-end;
-{$ENDREGION}
 
 end.
