@@ -117,21 +117,47 @@ var
   Jogador: TJogador;
   njog: integer;
 begin
-  if ((lbNomeJogador1.Caption = EmptyStr)) then
-  begin
-    lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1',
-      'Nome:', '');
-    Jogadores[0].Nome := lbNomeJogador1.Caption;
-    Jogadores[0].Simbolo := 'O';
+  while lbNomeJogador1.Caption = EmptyStr do
+
+      if ((lbNomeJogador1.Caption = EmptyStr)) then
+      begin
+      lbNomeJogador1.Caption := InputBox('Digite o nome do jogador 1',
+      'Nome:','');
+
+      if lbNomeJogador1.Caption='' then begin
+            abort;
+            end;
+
+      Jogadores[0].Nome := lbNomeJogador1.Caption;
+      Jogadores[0].Simbolo := 'O';
+
+      if ((lbNomeJogador1.Caption <> EmptyStr)) then
+  break
+
   end;
 
-  if ((lbNomeJogador2.Caption = EmptyStr)) then
-  begin
-    lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2',
+  while lbNomeJogador2.Caption = EmptyStr do
+
+      if ((lbNomeJogador2.Caption = EmptyStr)) then
+      begin
+      lbNomeJogador2.Caption := InputBox('Digite o nome do jogador 2',
       'Nome:', '');
-    Jogadores[1].Nome := lbNomeJogador2.Caption;
-    Jogadores[1].Simbolo := 'X';
+
+       if lbNomeJogador2.Caption='' then begin
+            abort;
+            end;
+
+      Jogadores[1].Nome := lbNomeJogador2.Caption;
+      Jogadores[1].Simbolo := 'X';
+
+      if ((lbNomeJogador2.Caption <> EmptyStr)) then
+
+  break
+
   end;
+
+  oRgTb.AtribuirSequencia(lbNomeJogador1.Caption
+  ,lbNomeJogador2.Caption);
 
 //  njog := 1;
   njog := (njog + 1) mod 2;

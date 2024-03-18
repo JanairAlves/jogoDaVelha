@@ -3,8 +3,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Jogo da velha'
-  ClientHeight = 643
-  ClientWidth = 688
+  ClientHeight = 634
+  ClientWidth = 682
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
   object pnTodaArea: TPanel
     Left = 0
     Top = 0
-    Width = 688
-    Height = 643
+    Width = 682
+    Height = 634
     Align = alClient
     BevelEdges = [beTop]
     TabOrder = 0

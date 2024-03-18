@@ -23,6 +23,7 @@ type
     procedure LimparTabuleiro(vArrayPanelJogadas: TPanelArray);
     function ValidarTabuleiroCheio(vArrayPanelJogadas: TPanelArray): Boolean;
     function ValidarVitoria(vArrayPanelJogadas: TPanelArray; Jogador: TJogador): Boolean;
+    procedure AtribuirSequencia(nmJ1,nmJ2:String);
 
 //  published
 end;
@@ -131,5 +132,39 @@ begin
 {$endregion}
 end;
 {$ENDREGION}
+
+procedure TRgTb.AtribuirSequencia(nmJ1,nmJ2:String);
+var JogadorEscolhido:String;
+begin
+  while not ((JogadorEscolhido = '1') or (JogadorEscolhido = '2'))  do
+  try
+    if not((nmJ1 = EmptyStr) and (nmJ2 = EmptyStr)) then
+      begin
+      JogadorEscolhido:= InputBox('Selecione um jogador para inciar a partida (1 ou 2)','Nome:', '');
+
+           if JogadorEscolhido='' then begin
+            abort;
+            end;             
+            
+          if ((JogadorEscolhido = '1') or (JogadorEscolhido = '2')) then
+            begin if (JogadorEscolhido = '1') then
+                  JogadorEscolhido:=nmJ1
+                  else
+                  JogadorEscolhido:=nmJ2;
+            ShowMessage('Foi selecionado o jogador : '+ uppercase(JogadorEscolhido) + ' para inciar a partida')
+            end
+            else 
+            ShowMessage('Por favor digite apenas 1 ou 2. ');
+      end;
+
+  if ((JogadorEscolhido = nmJ1) or (JogadorEscolhido = nmJ2)) then   
+  Break;
+  finally
+  if ((JogadorEscolhido = nmJ1) or (JogadorEscolhido = nmJ2)) then   
+  ShowMessage('Que comece o Jogo!');
+  end;
+  
+end;
+
 
 end.
