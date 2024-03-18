@@ -3,8 +3,7 @@
 interface
 
 uses
-  System.Classes, System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Dialogs,
-  Vcl.Forms;
+  System.Classes, System.SysUtils, Vcl.ExtCtrls, Vcl.Graphics, Vcl.Forms, Vcl.Dialogs, Winapi.Windows;
 
 type
   TJogador = record
@@ -24,6 +23,7 @@ type
     function ValidarTabuleiroCheio(vArrayPanelJogadas: TPanelArray): Boolean;
     function ValidarVitoria(vArrayPanelJogadas: TPanelArray; Jogador: TJogador): Boolean;
     procedure AtribuirSequencia(nmJ1,nmJ2:String);
+    function RealizaJogadas(Jogador: TJogador; vPanel: TPanel): Boolean;
 
 //  published
 end;
@@ -166,5 +166,16 @@ begin
   
 end;
 
+{$REGION 'Realiza jogada.'}
+function RealizaJogadas(Jogador: TJogador; vPanel: TPanel): Boolean;
+begin
+  Result := vPanel.Caption = EmptyStr;
+
+  if not Result then Abort;
+//    Application.MessageBox('Está casa já recebeu uma jogada, nas rodadas anteriores. Escolha outra casa!', 'Informação', MB_ICONINFORMATION+MB_OK);
+
+  vPanel.Caption := Jogador.Simbolo;
+end;
+{$ENDREGION}
 
 end.
