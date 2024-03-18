@@ -116,6 +116,7 @@ var
   res: Boolean;
   Jogador: TJogador;
   njog: integer;
+  nmJgEscolhido: String;
 begin
   while lbNomeJogador1.Caption = EmptyStr do
 
@@ -156,8 +157,10 @@ begin
 
   end;
 
-  oRgTb.AtribuirSequencia(lbNomeJogador1.Caption
+  njog:=oRgTb.AtribuirSequencia(lbNomeJogador1.Caption
   ,lbNomeJogador2.Caption);
+
+  ShowMessage(IntToStr(njog));
 
 //  njog := 1;
   njog := (njog + 1) mod 2;
