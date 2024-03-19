@@ -57,7 +57,6 @@ type
 
   private
     oRgTb: TRgTb;
-    OTJogador: TJogador;
     procedure inserirNmJogadores;
     procedure ListasPanelTabuleiro;
     procedure Rodada(vPanel: TPanel);
@@ -86,8 +85,6 @@ begin
 end;
 
 procedure TFormJogoDaVelha.FormDestroy(Sender: TObject);
-var
-  i: integer;
 begin
   FreeAndNil(oRgTb);
 end;
@@ -232,7 +229,6 @@ begin
 
   if vTabuleiroCheio or vVitoria then
   begin
-    lbPlacarRodadas.Caption := IntToStr( StrToInt(lbPlacarRodadas.Caption) + 1 );
     lbPlacarJogadas.Caption := '0';
     oRgTb.LimparTabuleiro(vArrayPanelJogadas);
   end;

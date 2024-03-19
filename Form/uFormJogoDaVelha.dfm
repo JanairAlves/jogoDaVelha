@@ -331,9 +331,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
           Align = alRight
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitLeft = 120
-          ExplicitTop = 1
-          ExplicitHeight = 62
           object lbJogadas: TLabel
             Left = 28
             Top = 2
@@ -369,9 +366,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitHeight = 62
           object lbRodadas: TLabel
             Left = 28
             Top = 2
