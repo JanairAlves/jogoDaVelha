@@ -25,11 +25,7 @@ type
     function AtribuirSequencia(nmJ1, nmJ2: String): Integer;
     function RealizaJogada(vPanel: TPanel; vJogador: TJogador): Boolean;
 
-//  published
 end;
-
-var
-  oRgTb: TRgTb;
 
 implementation
 
@@ -157,7 +153,7 @@ begin
       end
       else
         ShowMessage('Por favor digite apenas 1 ou 2. ');
-      end;
+    end;
 
     if ((JogadorEscolhido = nmJ1) or (JogadorEscolhido = nmJ2)) then
       Break;
