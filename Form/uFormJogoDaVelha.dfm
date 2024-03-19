@@ -2,6 +2,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = 'Jogo da velha'
   ClientHeight = 624
   ClientWidth = 672
@@ -14,7 +15,6 @@ object FormJogoDaVelha: TFormJogoDaVelha
   Position = poScreenCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  OnMouseActivate = FormMouseActivate
   OnShow = FormShow
   TextHeight = 15
   object pnTodaArea: TPanel
@@ -25,8 +25,8 @@ object FormJogoDaVelha: TFormJogoDaVelha
     Align = alClient
     BevelEdges = [beTop]
     TabOrder = 0
-    ExplicitWidth = 684
-    ExplicitHeight = 642
+    ExplicitWidth = 668
+    ExplicitHeight = 623
     object pnTabuleiro: TPanel
       Left = 136
       Top = 88
@@ -49,20 +49,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        object pnCS1: TPanel
-          Left = 0
-          Top = -1
-          Width = 30
-          Height = 30
-          Caption = 'CS1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab1Click
       end
       object pnTab2: TPanel
         Left = 137
@@ -78,20 +65,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
-        object pnCS2: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS2'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab2Click
       end
       object pnTab3: TPanel
         Left = 274
@@ -107,20 +81,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 2
-        object pnCS3: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS3'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab3Click
       end
       object pnTab4: TPanel
         Left = 1
@@ -136,20 +97,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 3
-        object pnCS4: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS4'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab4Click
       end
       object pnTab5: TPanel
         Left = 137
@@ -165,20 +113,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 4
-        object pnCS5: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS5'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab5Click
       end
       object pnTab6: TPanel
         Left = 274
@@ -194,20 +129,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 5
-        object pnCS6: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS6'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab6Click
       end
       object pnTab7: TPanel
         Left = 1
@@ -223,20 +145,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 6
-        object pnCS7: TPanel
-          Left = -1
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS7'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab7Click
       end
       object pnTab8: TPanel
         Left = 137
@@ -252,20 +161,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 7
-        object pnCS8: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS8'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab8Click
       end
       object pnTab9: TPanel
         Left = 274
@@ -281,32 +177,19 @@ object FormJogoDaVelha: TFormJogoDaVelha
         ParentBackground = False
         ParentFont = False
         TabOrder = 8
-        object pnCS9: TPanel
-          Left = 0
-          Top = 0
-          Width = 30
-          Height = 30
-          Caption = 'CS9'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-        end
+        OnClick = pnTab9Click
       end
     end
     object pnStatus: TPanel
       Left = 1
       Top = 1
-      Width = 686
+      Width = 670
       Height = 64
       Align = alTop
       BevelEdges = []
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 682
+      ExplicitWidth = 666
       object pnStatusNome: TPanel
         Left = 0
         Top = 0
@@ -371,12 +254,12 @@ object FormJogoDaVelha: TFormJogoDaVelha
       object pnStatusVitorias: TPanel
         Left = 224
         Top = 0
-        Width = 231
+        Width = 215
         Height = 64
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitWidth = 227
+        ExplicitWidth = 211
         object lbJog1: TLabel
           Left = 16
           Top = 18
@@ -419,66 +302,118 @@ object FormJogoDaVelha: TFormJogoDaVelha
         object lbVitJog1: TLabel
           Left = 67
           Top = 20
-          Width = 3
+          Width = 6
           Height = 15
+          Caption = '0'
         end
         object lbVitJog2: TLabel
           Left = 67
           Top = 41
-          Width = 3
+          Width = 6
           Height = 15
+          Caption = '0'
         end
       end
       object pnStatusRodadas: TPanel
-        Left = 455
+        Left = 439
         Top = 0
         Width = 231
         Height = 64
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitLeft = 451
-        object lbRodadas: TLabel
-          Left = 98
-          Top = 2
-          Width = 52
-          Height = 17
-          Caption = 'Rodadas'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
+        ExplicitLeft = 435
+        object Panel1: TPanel
+          Left = 116
+          Top = 0
+          Width = 115
+          Height = 64
+          Align = alRight
+          BevelOuter = bvNone
+          TabOrder = 0
+          ExplicitLeft = 120
+          ExplicitTop = 1
+          ExplicitHeight = 62
+          object lbJogadas: TLabel
+            Left = 28
+            Top = 2
+            Width = 50
+            Height = 17
+            Caption = 'Jogadas'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Segoe UI'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbPlacarJogadas: TLabel
+            Left = 48
+            Top = 23
+            Width = 16
+            Height = 37
+            Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -27
+            Font.Name = 'Segoe UI'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
         end
-        object lbContRodadas: TLabel
-          Left = 115
-          Top = 19
-          Width = 16
-          Height = 37
-          Caption = '0'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -27
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
+        object Panel2: TPanel
+          Left = 0
+          Top = 0
+          Width = 115
+          Height = 64
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitHeight = 62
+          object lbRodadas: TLabel
+            Left = 28
+            Top = 2
+            Width = 52
+            Height = 17
+            Caption = 'Rodadas'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Segoe UI'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object lbPlacarRodadas: TLabel
+            Left = 44
+            Top = 25
+            Width = 16
+            Height = 37
+            Caption = '0'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -27
+            Font.Name = 'Segoe UI'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
         end
       end
     end
     object pnJogadas: TPanel
       Left = 1
-      Top = 512
-      Width = 686
+      Top = 493
+      Width = 670
       Height = 130
       Align = alBottom
       TabOrder = 2
-      ExplicitTop = 511
-      ExplicitWidth = 682
+      ExplicitTop = 492
+      ExplicitWidth = 666
       object pnTituloJogadas: TPanel
         Left = 1
         Top = 1
-        Width = 684
+        Width = 668
         Height = 24
         Align = alTop
         Caption = 'Jogadas'
@@ -489,7 +424,7 @@ object FormJogoDaVelha: TFormJogoDaVelha
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 680
+        ExplicitWidth = 664
       end
     end
   end
