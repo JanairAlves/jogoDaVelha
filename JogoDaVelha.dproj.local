@@ -5,16 +5,16 @@
     <Transaction>2024/01/25 17:17:31.000.184,=C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2024/02/01 12:30:44.000.303,=C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2024/03/09 14:00:25.000.888,=C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/03/09 14:01:15.000.426,C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.dfm</Transaction>
-    <Transaction>2024/03/09 14:01:15.000.426,C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.pas</Transaction>
-    <Transaction>2024/03/09 14:01:26.000.753,C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=D:\Delphi\Projetos\JogoDaVelha\JogoDaVelha.dproj</Transaction>
-    <Transaction>2024/03/09 17:12:59.000.883,D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.dfm=D:\Delphi\Projetos\JogoDaVelha\Form\uFormJogoDaVelha.dfm</Transaction>
-    <Transaction>2024/03/09 17:12:59.000.883,D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.pas=D:\Delphi\Projetos\JogoDaVelha\Form\uFormJogoDaVelha.pas</Transaction>
+    <Transaction>2024/03/09 14:01:15.000.426,D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.dfm=C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/03/09 14:01:15.000.426,D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.pas=C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/09 14:01:26.000.753,D:\Delphi\Projetos\JogoDaVelha\JogoDaVelha.dproj=C:\Users\janai\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/03/09 17:12:59.000.883,D:\Delphi\Projetos\JogoDaVelha\Form\uFormJogoDaVelha.dfm=D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.dfm</Transaction>
+    <Transaction>2024/03/09 17:12:59.000.883,D:\Delphi\Projetos\JogoDaVelha\Form\uFormJogoDaVelha.pas=D:\Delphi\Projetos\JogoDaVelha\uFormJogoDaVelha.pas</Transaction>
     <Transaction>2024/03/11 19:51:56.000.560,=D:\Delphi\Projetos\JogoDaVelha\Unit1.pas</Transaction>
-    <Transaction>2024/03/11 19:54:01.000.693,D:\Delphi\Projetos\JogoDaVelha\Class\uRegrasTabuleiro.pas=D:\Delphi\Projetos\JogoDaVelha\Unit1.pas</Transaction>
+    <Transaction>2024/03/11 19:54:01.000.693,D:\Delphi\Projetos\JogoDaVelha\Unit1.pas=D:\Delphi\Projetos\JogoDaVelha\Class\uRegrasTabuleiro.pas</Transaction>
     <Transaction>2024/03/11 19:57:29.000.601,D:\Delphi\Projetos\JogoDaVelha\Class\uRegrasTabuleiro.pas=</Transaction>
     <Transaction>2024/03/11 20:00:14.000.490,=D:\Delphi\Projetos\JogoDaVelha\Unit1.pas</Transaction>
-    <Transaction>2024/03/11 20:00:47.000.310,D:\Delphi\Projetos\JogoDaVelha\Class\uRegrasTabuleiro.pas=D:\Delphi\Projetos\JogoDaVelha\Unit1.pas</Transaction>
+    <Transaction>2024/03/11 20:00:47.000.310,D:\Delphi\Projetos\JogoDaVelha\Unit1.pas=D:\Delphi\Projetos\JogoDaVelha\Class\uRegrasTabuleiro.pas</Transaction>
     <Transaction>2024/03/14 10:07:17.000.837,D:\Delphi\Projetos\jogoDaVelha\Class\uRegrasTabuleiro.pas=</Transaction>
     <Transaction>2024/03/14 10:21:20.000.050,=D:\Delphi\Projetos\jogoDaVelha\Class\uRegrasTabuleiro.pas</Transaction>
   </Transactions>
